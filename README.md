@@ -44,15 +44,19 @@ The magnitudes of each complex number in each frequency bin are now stored back 
 ## Importance of Windowing Functions
 Often, when real-life signals are sampled, they are not in an ideal form for the Fourier transorm. Ideally, The beginning of the sampled section of the signal would match up with the end of the sampled section. This is because in order to calculate the frequencies within the signal, the signal needs to be periodic, so the FFT repeats the sampled section of the signal to infinity. If the start and end do not match, there will be a discontinuous jump which needs to be accounted for with unwanted frequencies. This results in spreading out of the frequency plot called spectral leakage.
 
-Spectral leakage (no window): ![Spectral leakage without a window](images/spectral_leakage_no_window.png)
+Spectral leakage (no window):
+
+![Spectral leakage without a window](images/spectral_leakage_no_window.PNG)
 
 In order to minimize spectral leakage, you must force the ends of the sampled signal to meet. In order to accomplish this without having a discontinuous jump, a windowing function is applied. A windowing function forces the amplitude of the signal to be within the window. The window then gradually tapers off and pinches at the end, forcing the ends of the signal to 0, thus ensuring the ends match up. Of course, this still alters the signal, but not as much as a large jump, thus minimizing spectral leakage.
 
 Effect of windowing function on signal: 
-![Windowing Function](images/window.png)
+
+<img src="images/window.png" width="400">
 
 Spectral Leakage with Blackman-Harris window:
-![Spectral leakage with blackmann harris](images/spectral_leakage_blackman_harris.png)
+
+![Spectral leakage with blackmann harris](images/spectral_leakage_blackman_harris.PNG)
 
 ## Accuracy of the FFT
 The FFT is as accurate as possible for the amount of data given and the given sampling frequency. The frequency resolution (difference in frequency between subsequent bins) is determined by the following relationship:
